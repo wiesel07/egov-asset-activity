@@ -1,12 +1,12 @@
-package com.bosssoft.egov.asset.activity.exception;
+package com.bosssoft.egov.asset.activity.common.exception;
 
 import java.io.Serializable;
 import java.text.MessageFormat;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.bosssoft.egov.asset.activity.entity.IErrorCode;
-import com.bosssoft.egov.asset.activity.utils.JsonUtilsExt;
+import com.bosssoft.egov.asset.activity.common.entity.IErrorCode;
+import com.bosssoft.egov.asset.activity.common.utils.JsonUtilsExt;
 
 import lombok.Getter;
 

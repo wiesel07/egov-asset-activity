@@ -2,12 +2,22 @@ package com.bosssoft.egov.asset.activity.service.impl;
 
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bosssoft.egov.asset.activity.entity.ProcessResult;
+import com.bosssoft.egov.asset.activity.act.entity.ProcessResult;
+import com.bosssoft.egov.asset.activity.common.exception.ActivityException;
 import com.bosssoft.egov.asset.activity.service.IActivityService;
+import com.bosssoft.platform.bpmnx.api.ProcessCategoryService;
+import com.bosssoft.platform.bpmnx.api.ProcessDefinitionService;
+import com.bosssoft.platform.bpmnx.api.ProcessInstanceService;
+import com.bosssoft.platform.bpmnx.api.TaskManagerService;
+import com.bosssoft.platform.bpmnx.exception.BpmnxException;
+import com.bosssoft.platform.bpmnx.model.HistoricProcessInstanceModel;
+import com.bosssoft.platform.bpmnx.model.ProcessInstanceModel;
 import com.bosssoft.platform.bpmnx.model.TaskModel;
 
+import cn.hutool.core.util.ObjectUtil;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -31,14 +41,8 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 @Service
-public class ActivityServiceImpl implements IActivityService {@Override
-
-	public ProcessResult startTask(String processDefinitionKey, String businessKey, String processStarter,
-			Map<String, Object> variables) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+public class ActivityServiceImpl implements IActivityService {
+	
 	@Override
 	public TaskModel queryUnFinishedTask(String userId, String businessKey) {
 		// TODO Auto-generated method stub
@@ -58,40 +62,40 @@ public class ActivityServiceImpl implements IActivityService {@Override
 		return null;
 	}
 
-//	@Reference
-//	private ProcessCategoryService processCategoryService;
-//	@Reference
-//	private ProcessDefinitionService processDefinitionService;
-//
-//	@Reference
-//	private ProcessInstanceService processInstanceService;
-//
-//	@Reference
-//	private TaskManagerService taskManagerService;
-//
-//	@Override
-//	public ProcessResult startTask(String processDefinitionKey, String businessKey, String processStarter,
-//			Map<String, Object> variables) {
-//
-//		// 根据流程定义key和业务key获取流程实例的详细信息
-//		HistoricProcessInstanceModel historicProcessInstanceModel = processInstanceService
-//				.getHisProcessInstanceByBusinessKey(businessKey, processDefinitionKey);
-//		if (ObjectUtil.isNotNull(historicProcessInstanceModel)) {
-//			throw new ActivityException("业务ID【" + businessKey + "】对应的流程实例已经存在");
-//		}
-//		try {
-//			// 启动流程实例
-//			ProcessInstanceModel processInstanceModel = processInstanceService
-//					.startProcessInstanceByKey(processDefinitionKey, businessKey, processStarter, variables);
-//		} catch (BpmnxException e) {
-//			System.out.println(e.getMessage());
-//		}
-//
-//		// 提交流程实例
-//		String comment = "用户【" + processStarter + "】提交";
-//		ProcessResult processResult = completeTask(businessKey, processStarter, variables, comment);
-//		return processResult;
-//	}
+	@Autowired
+	private ProcessCategoryService processCategoryService;
+	@Autowired
+	private ProcessDefinitionService processDefinitionService;
+
+	@Autowired
+	private ProcessInstanceService processInstanceService;
+
+	@Autowired
+	private TaskManagerService taskManagerService;
+
+	@Override
+	public ProcessResult startTask(String processDefinitionKey, String businessKey, String processStarter,
+			Map<String, Object> variables) {
+
+		// 根据流程定义key和业务key获取流程实例的详细信息
+		HistoricProcessInstanceModel historicProcessInstanceModel = processInstanceService
+				.getHisProcessInstanceByBusinessKey(businessKey, processDefinitionKey);
+		if (ObjectUtil.isNotNull(historicProcessInstanceModel)) {
+			throw new ActivityException("业务ID【" + businessKey + "】对应的流程实例已经存在");
+		}
+		try {
+			// 启动流程实例
+			ProcessInstanceModel processInstanceModel = processInstanceService
+					.startProcessInstanceByKey(processDefinitionKey, businessKey, processStarter, variables);
+		} catch (BpmnxException e) {
+			System.out.println(e.getMessage());
+		}
+
+		// 提交流程实例
+		String comment = "用户【" + processStarter + "】提交";
+		ProcessResult processResult = completeTask(businessKey, processStarter, variables, comment);
+		return processResult;
+	}
 //
 //	@Override
 //	public TaskModel queryFinishedTask(String userId, String businessKey) {

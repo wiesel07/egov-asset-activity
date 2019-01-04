@@ -1,4 +1,4 @@
-package com.bosssoft.egov.asset.activity.enums;
+package com.bosssoft.egov.asset.activity.common.enums;
 
 import lombok.Getter;
 

@@ -10,13 +10,13 @@
         http://www.springframework.org/schema/tx     http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
         http://www.springframework.org/schema/aop    http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 
-    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+    <!-- <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
         <property name="dataSource" ref="defaultDataSource"></property>
     </bean>
-
+ -->
     <bean id="spiConfiguration" class="org.activiti.engine.spi.SpiConfiguration">
         <property name="omService">
-            <bean class="com.bosssoft.platform.bpmnx.om.MockOMServiceImpl"/>
+            <bean class="com.bosssoft.egov.asset.activity.user.MockOMServiceImpl"/>
         </property>
         <property name="omCacheEnabled" value="false"/>
     </bean>
@@ -27,7 +27,7 @@
     <bean id="processEngineConfiguration"
           class="org.activiti.spring.SpringProcessEngineConfiguration">
         <property name="processEngineName" value="bpmnx"/>
-        <property name="databaseSchema" value="${jdbc.databaseSchema}"/>
+        <property name="databaseSchema" value="${spring.jdbc.databaseSchema}"/>
         <property name="dataSource" ref="defaultDataSource"/>
         <property name="transactionManager" ref="defaultDataSourceTransactionManager"/>
         <property name="databaseSchemaUpdate" value="true"/>

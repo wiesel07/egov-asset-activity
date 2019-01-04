@@ -2,7 +2,7 @@ package com.bosssoft.egov.asset.activity.service;
 
 import java.util.Map;
 
-import com.bosssoft.egov.asset.activity.entity.ProcessResult;
+import com.bosssoft.egov.asset.activity.act.entity.ProcessResult;
 import com.bosssoft.platform.bpmnx.model.TaskModel;
 
 /**

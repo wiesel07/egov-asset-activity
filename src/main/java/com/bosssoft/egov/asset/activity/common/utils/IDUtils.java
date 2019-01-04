@@ -1,4 +1,4 @@
-package com.bosssoft.egov.asset.activity.utils;
+package com.bosssoft.egov.asset.activity.common.utils;
 
 import java.util.UUID;
 

@@ -1,11 +1,11 @@
-package com.bosssoft.egov.asset.activity.utils;
+package com.bosssoft.egov.asset.activity.common.utils;
 
 import java.lang.management.ManagementFactory;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.util.concurrent.ThreadLocalRandom;
 
-import com.bosssoft.egov.asset.activity.exception.ActivityException;
+import com.bosssoft.egov.asset.activity.common.exception.ActivityException;
 
 import lombok.extern.slf4j.Slf4j;
 

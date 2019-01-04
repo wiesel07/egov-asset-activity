@@ -1,6 +1,9 @@
 package com.bosssoft.egov.asset.activity.controller;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.log;
+
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,11 +12,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bosssoft.egov.asset.activity.entity.ProcessResult;
+import com.bosssoft.egov.asset.activity.act.entity.ProcessResult;
 import com.bosssoft.egov.asset.activity.service.IActivityService;
+import com.bosssoft.platform.bpmnx.api.ProcessCategoryService;
+import com.bosssoft.platform.bpmnx.model.CategoryModel;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  *
@@ -37,10 +43,14 @@ import io.swagger.annotations.ApiOperation;
 @Api(tags = "工作流管理")
 @RestController
 @RequestMapping("/activity")
+@Slf4j
 public class ActivityController {
 	@Autowired
 	private IActivityService activityService;
 
+	@Autowired
+	private ProcessCategoryService processCategoryService;
+	
 	@ApiOperation(value = "通过流程定义key，启动流程实例并提交，并且可以设置流程发起者", notes = "启动流程")
 //	@ApiImplicitParams({
 //			@ApiImplicitParam(name = "processDefinitionKey", value = "流程定义key", required = true, dataType = "String", paramType = "query"),
@@ -53,6 +63,11 @@ public class ActivityController {
 		Map<String, Object> variables = new HashMap<>();
 		variables.put("billId", businessKey);
 		variables.put("orgCode", orgCode);
+		
+		
+//		log.info("工作流-----"+processCategoryService);
+//		 List<CategoryModel> categoryModels=processCategoryService.queryAllCategories();
+//		log.info(categoryModels.toString());
 		return activityService.startTask(processDefinitionKey, businessKey, processStarter, variables);
 	}
 
