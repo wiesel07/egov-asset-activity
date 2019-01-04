@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.0.3.RELEASE</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>cn.com.bosssoft.egov.activity</groupId>
+	<artifactId>egov-asset-activity</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>egov-asset-activity</name>
+	<description>Demo project for Spring Boot</description>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+		<druid.version>1.1.10</druid.version>
+		<mybatisplus-spring-boot-starter.version>1.0.5</mybatisplus-spring-boot-starter.version>
+		<mybatisplus.version>2.1.9</mybatisplus.version>
+		<swagger.version>2.9.2</swagger.version>
+		<swagger.bootstrap.ui.version>1.8.8</swagger.bootstrap.ui.version>
+		<druid.versioin>1.1.9</druid.versioin>
+		<fastjson.version>1.2.47</fastjson.version>
+		<commons-io.version>2.6</commons-io.version>
+		<commons.configuration.version>1.10</commons.configuration.version>
+		<commons.beanuntils.version>1.8.3</commons.beanuntils.version>
+		<hibernate-validator.version>6.0.10.Final</hibernate-validator.version>
+		<lombok.version>1.16.22</lombok.version>
+		<hutool.version>4.1.19</hutool.version>
+
+		<bpmnx.version>1.3.2</bpmnx.version>
+		<activitix.version>5.23.5</activitix.version>
+
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+
+		<!--web -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-mail</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- mybatis-plus -->
+		<!-- <dependency> <groupId>com.baomidou</groupId> <artifactId>mybatisplus-spring-boot-starter</artifactId> 
+			<version>${mybatisplus-spring-boot-starter.version}</version> </dependency> 
+			<dependency> <groupId>com.baomidou</groupId> <artifactId>mybatis-plus</artifactId> 
+			<version>${mybatisplus.version}</version> </dependency> -->
+		<!-- <dependency> <groupId>com.alibaba</groupId> <artifactId>druid-spring-boot-starter</artifactId> 
+			<version>${druid.versioin}</version> </dependency> -->
+		<!-- oracle -->
+		<!-- <dependency> <groupId>com.oracle</groupId> <artifactId>ojdbc6</artifactId> 
+			<version>11.2.0.1.0</version> </dependency> -->
+
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>${fastjson.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>${commons-io.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-configuration</groupId>
+			<artifactId>commons-configuration</artifactId>
+			<version>${commons.configuration.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>cn.hutool</groupId>
+			<artifactId>hutool-core</artifactId>
+			<version>${hutool.version}</version>
+		</dependency>
+		<!-- <dependency> <groupId>cn.hutool</groupId> <artifactId>hutool-json 
+			</artifactId> <version>${hutool.version}</version> </dependency> -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>${hibernate-validator.version}</version>
+		</dependency>
+		<!--swagger -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>${swagger.version}</version>
+		</dependency>
+		<!-- <dependency> <groupId>io.springfox</groupId> <artifactId>springfox-swagger-ui</artifactId> 
+			<version>${swagger.version}</version> </dependency> -->
+		<dependency>
+			<groupId>com.github.xiaoymin</groupId>
+			<artifactId>swagger-bootstrap-ui</artifactId>
+			<version>${swagger.bootstrap.ui.version}</version>
+		</dependency>
+
+
+		<!-- zookeeper -->
+		<dependency>
+			<groupId>com.github.sgroschupf</groupId>
+			<artifactId>zkclient</artifactId>
+			<version>0.1</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>slf4j-api</artifactId>
+					<groupId>org.slf4j</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>log4j</artifactId>
+					<groupId>log4j</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>slf4j-log4j12</artifactId>
+					<groupId>org.slf4j</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!-- Dubbox -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>dubbo</artifactId>
+			<version>2.8.4</version>
+		</dependency>
+		<!-- springboot的注解处理器 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
+		</dependency>
+
+		<!-- 工作流组件 -->
+		<!-- <dependency> <groupId>com.bosssoft.platform.bpmnx</groupId> <artifactId>com.bosssoft.platform.bpmnx.api</artifactId> 
+			<version>${bpmnx.version}</version> </dependency> -->
+
+
+		<!-- <dependency> <groupId>cn.com.bosssoft.egov.activity</groupId> <artifactId>egov-asset-activity-api</artifactId> 
+			<version>0.0.1-SNAPSHOT</version> </dependency> -->
+
+		<dependency>
+			<groupId>com.bosssoft.platform</groupId>
+			<artifactId>activitix-engine</artifactId>
+			<version>${activitix.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.bosssoft.platform</groupId>
+			<artifactId>activitix-spring</artifactId>
+			<version>${activitix.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.bosssoft.platform.bpmnx</groupId>
+			<artifactId>com.bosssoft.platform.bpmnx.impl</artifactId>
+			<version>${bpmnx.version}</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
