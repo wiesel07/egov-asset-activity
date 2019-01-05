@@ -1,24 +1,25 @@
+jdbc: 
+   databaseSchema: EGAMS_QZSS_TEST
 bpmnx: 
   spi: 
-   omservice: com.bosssoft.egov.asset.activity.user.MockOMServiceImpl
+   omservice: com.bosssoft.egov.asset.activiti.user.MockOMServiceImpl
 swagger: 
    enabled: true
+logging:
+  level:
+    io.swagger.models.parameters.AbstractSerializableParameter: error
 server: 
   port: 8081
   tomcat:
     uri-encoding: UTF-8
   
 spring: 
-  activiti: 
-
   http:
     encoding:
       force: true
       charset: UTF-8
       enabled: true 
  # ====================druid====================
-  jdbc: 
-     databaseSchema: EGAMS_QZSS_TEST
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driverClassName: oracle.jdbc.driver.OracleDriver

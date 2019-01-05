@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bosssoft.egov.asset.activiti.log.dao.ActivitiProcessLogDao">
+
+   <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+    ID,    ASSIGNEE,    ASSIGNEE_NAME,    NEXT_ASSIGNEE,    NEXT_ASSIGNEE_NAME,    ROLE_NAME,    ACTION,    PROCESS_NAME,    PROC_DEF_ID,    PROC_INST_ID,    BUS_TYPE,    TASK_ID,    TASK_NAME,    ACT_TYPE,    ACT_ID,    ACT_NAME,    NEXT_ACT_ID,    NEXT_ACT_NAME,    ROLE_CODE,    BUSINESS_KEY,    OPERATE_DATE,    OPERATE_TIME,    COMMENT,    DESCRIPTION,    REMARK,    CREATOR_ID,    CREATOR_CODE,    DEL_FLAG,    CREATE_TIME,    MODIFY_TIME    </sql>
+
+</mapper>

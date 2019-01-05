@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.bosssoft.egov.asset.config.dao.BfSysConfigDao">
-
-   <!-- 通用查询结果列 -->
-    <sql id="Base_Column_List">
-    CONFIG_ID,    CONFIG_CODE,    CONFIG_NAME,    CONFIG_TYPE,    CONFIG_VALUE,    REMARK,    CONFIG_VALUE1,    CONFIG_VALUE2,    CONFIG_VALUE3,    CONFIG_VALUE4,    CONFIG_VALUE5,    CREATOR_ID,    CREATOR_CODE,    DEL_FLAG,    CREATE_TIME,    MODIFY_TIME    </sql>
-
-</mapper>

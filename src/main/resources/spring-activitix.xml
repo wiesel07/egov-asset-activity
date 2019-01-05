@@ -16,7 +16,7 @@
  -->
     <bean id="spiConfiguration" class="org.activiti.engine.spi.SpiConfiguration">
         <property name="omService">
-            <bean class="com.bosssoft.egov.asset.activity.user.MockOMServiceImpl"/>
+            <bean class="com.bosssoft.egov.asset.activiti.user.MockOMServiceImpl"/>
         </property>
         <property name="omCacheEnabled" value="false"/>
     </bean>
