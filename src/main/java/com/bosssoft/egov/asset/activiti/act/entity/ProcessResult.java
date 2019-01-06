@@ -1,6 +1,8 @@
 package com.bosssoft.egov.asset.activiti.act.entity;
 
 
+import java.util.List;
+
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -29,4 +31,14 @@ public class ProcessResult {
 
 	private String bizStatus;
 	private String bizName;
-}
+	
+	//任务节点ID
+	private String 	activityId;
+	
+	// 任务节点名称
+	private String 	activityName;
+	
+	private List<String> participatorIds;
+	
+	private List<String> participatorTypes;
+ }

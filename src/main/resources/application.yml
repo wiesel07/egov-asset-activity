@@ -1,5 +1,5 @@
 jdbc: 
-   databaseSchema: EGAMS_QZSS_TEST
+   databaseSchema: ASSET_SMART
 bpmnx: 
   spi: 
    omservice: com.bosssoft.egov.asset.activiti.user.MockOMServiceImpl
@@ -25,8 +25,8 @@ spring:
     driverClassName: oracle.jdbc.driver.OracleDriver
     #url: jdbc:oracle:thin:@//192.168.10.180:1521/orcl
     #username: egams_qzss
-    url: jdbc:oracle:thin:@192.168.10.180:1521/orcl
-    username: egams_qzss_test
+    url: jdbc:oracle:thin:@127.0.0.1:1521/orcl
+    username: asset_smart
     password: bs
     druid: 
       #初始化时建立物理连接的个数。初始化发生在显示调用init方法，或者第一次getConnection时

@@ -30,7 +30,12 @@ public enum ActivitiError implements IErrorCode {
 	TASK_HAS_HANDLED("ACT_1001004","业务类型【{0}】、业务ID【{1}】所对应的任务已被处理"),
 	DUPLICATE_SUBMIT("ACT_1001005","请勿重复提交！"),
     PROCESS_DEFINITION_KEY_NOTEXIST("ACT_1001006","业务类型【{0}】不存在"),
-
+    UNFINISHED_TASK_NOTEXIST("ACT_1001007","业务类型【{0}】、业务ID【{1}】所对应的流程实例没有未完成任务"),
+    UNFINISHED_TASK_OVER("ACT_1001008","业务类型【{0}】、业务ID【{1}】所对应的流程未完成任务数量超过1"),
+	USERROLE_ERROR("ACT_1001009","当前用户没有角色权限！"),
+	GET_NEXT_USESRROLE_FAIL("ACT_1001010","未找到指定人员，请新增人员！"),
+	PROCESSFORM_DEFINITION_MODLE_NOTEXIST("ACT_1001011","业务类型【{0}】未定义力促表单行为"),
+	TASKFORM_DEFINITION_MODLE_NOTEXIST("ACT_1001012","业务类型【{0}】未定义任务节点表单行为"),
 	
 	BUSNAMENOTFOUND("1", "业务类型不存在！"), 
 	TASKNOTFOUND("2", "不当操作！（未提交或者是未操作过的任务进行取消操作！对于当前用户来说任务不存在）"),
@@ -51,13 +56,13 @@ public enum ActivitiError implements IErrorCode {
 	NOREVERSEHANDLE("27","非法操作，无法进行取消操作！"),
 	NOREVERSEHANDLESIMPLE("28","无法进行取消操作"),
 	ALREADYPERMISSIONERROR("29","该节点已授权，请删除后再重新授权！"),
-	ROLEERROR("30","当前用户没有角色权限！"),
+
 	CANCELERROR("31","不允许撤回！"),
 	GETSTATUSFAIL("32","获取状态失败！"),
 	GETRIGHTFAIL("33","获取权限失败！"),
 	FORWARDUSERISNULL("34","转发任务者不能为空！"),
 	DESIGNGROUPSISNULL("35","角色不能为空"),
-	GETNEXTUSESRFAIL("36","未找到指定人员，请新增人员！"),
+
 	CURRENTUSERNOTRIGHT("37","无此权限，无法进行该操作"),
 	NOPASSCANT("38","已审核，无法进行撤回！"),
 	NORETURNACTION("39","已退回的单据无法撤回"),

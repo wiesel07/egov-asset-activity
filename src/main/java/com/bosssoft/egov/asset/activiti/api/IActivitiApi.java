@@ -19,12 +19,14 @@ package com.bosssoft.egov.asset.activiti.api;
 *</p>
 */
 
+import java.util.List;
 import java.util.Map;
 
 import com.bosssoft.egov.asset.activiti.act.entity.ActivitiParams;
 import com.bosssoft.egov.asset.activiti.act.entity.ProcessFormParams;
 import com.bosssoft.egov.asset.activiti.act.entity.ProcessResult;
 import com.bosssoft.egov.asset.activiti.act.entity.TaskFormParams;
+import com.bosssoft.platform.bpmnx.model.ActivityModel;
 import com.bosssoft.platform.bpmnx.model.FormDefinitionModel;
 
 public interface IActivitiApi {
@@ -74,4 +76,20 @@ public interface IActivitiApi {
 	 * @author 作者：wuj
 	 */
 	ProcessResult  doAudit( ActivitiParams activitiParams);
+	
+
+	/**
+	 * 
+	 * <p>函数名称：        </p>
+	 * <p>功能说明：查询业务流程定义中所有的活动定义(用于自定义退回哪一个节点使用)
+	 *
+	 * </p>
+	 *<p>参数说明：</p>
+	 * @param taskFormParams
+	 * @return
+	 *
+	 * @date   创建时间：2019年1月6日
+	 * @author 作者：wujian
+	 */
+    List<ActivityModel> getActivitiesOfProcessDefintion(ProcessFormParams processFormParams);
 }
